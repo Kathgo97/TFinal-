@@ -19,17 +19,10 @@ public class Usuario {
 	private Integer cUsuario;
 	
 	@Column(name="u_usuario")
-	private String User;
+	private String uName;
 	
 	@Column(name="u_password")
-	private String Password;
-	
-	public Usuario(Integer cUsuario, String User, String Password) {
-		this.cUsuario = cUsuario;
-		this.User = User;
-		this.Password = Password;
-	}
-	
+	private String uPass;
 
 	public Integer getcUsuario() {
 		return cUsuario;
@@ -39,19 +32,21 @@ public class Usuario {
 		this.cUsuario = cUsuario;
 	}
 
-	public String getUser() {
-		return User;
+	public String getuName() {
+		return uName;
 	}
 
-	public void setUser(String User) {
-		this.User = User;
+	public void setuName(String uName) {
+		this.uName = uName;
 	}
 
-	public String getPassword() {
-		return Password;
+	public String getuPass() {
+		return uPass;
 	}
 
-	public void setPassword(String Password) {
-		this.Password = Password;
+	public void setuPass(String uPass) {
+		this.uPass = uPass;
 	}
+	
+	
 }
