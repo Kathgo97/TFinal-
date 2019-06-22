@@ -9,19 +9,19 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="public",name="usuario")
+@Table(schema = "public", name = "usuario")
 
 public class Usuario {
 	@Id
-	@GeneratedValue(generator="usuario_id_usuario_seq",strategy=GenerationType.AUTO)
-	@SequenceGenerator(name="usuario_id_usuario_seq",sequenceName="public.usuario_id_usuario_seq",allocationSize = 1)
-	@Column(name="id_usuario")
+	@GeneratedValue(generator = "usuario_id_usuario_seq", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "usuario_id_usuario_seq", sequenceName = "public.usuario_id_usuario_seq", allocationSize = 1)
+	@Column(name = "id_usuario")
 	private Integer cUsuario;
-	
-	@Column(name="u_usuario")
+
+	@Column(name = "nombre_usuario")
 	private String uName;
-	
-	@Column(name="u_password")
+
+	@Column(name = "contra_usuario")
 	private String uPass;
 
 	public Integer getcUsuario() {
@@ -47,6 +47,5 @@ public class Usuario {
 	public void setuPass(String uPass) {
 		this.uPass = uPass;
 	}
-	
-	
+
 }

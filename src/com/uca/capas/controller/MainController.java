@@ -13,7 +13,6 @@ import com.uca.capas.service.UsuarioService;
 @Controller
 public class MainController {
 
-
 	@Autowired
 	UsuarioService usuarioService;
 
@@ -31,6 +30,13 @@ public class MainController {
 		return mav;
 	}
 
+	@GetMapping("/home")
+	public ModelAndView initHome() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home");
+		return mav;
+	}
+
 	@PostMapping(value = "/validate")
 	public ModelAndView validate(@RequestParam(value = "Username") String username,
 			@RequestParam(value = "Password") String password) {
@@ -40,7 +46,6 @@ public class MainController {
 			if (usuarioLogin.getuName() != null) {
 				if (usuarioLogin.getuName().equals(username)) {
 					if (usuarioLogin.getuPass().equals(password)) {
-						mav.setViewName("home");
 						return new ModelAndView("redirect:/home");
 					}
 				}
