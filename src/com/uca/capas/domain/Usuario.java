@@ -18,10 +18,10 @@ public class Usuario {
 	@Column(name = "id_usuario")
 	private Integer cUsuario;
 
-	@Column(name = "nombre_usuario")
+	@Column(name = "u_usuario")
 	private String uName;
 
-	@Column(name = "contra_usuario")
+	@Column(name = "u_password")
 	private String uPass;
 
 	public Integer getcUsuario() {

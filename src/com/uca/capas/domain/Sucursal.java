@@ -38,7 +38,7 @@ public class Sucursal {
 	@Column(name="s_nmesas")
 	private Integer nmesas;
 	
-	@Column(name="s_nomGerente")
+	@Column(name="s_nomgerente")
 	private String gerente;
 	
 	@OneToMany(mappedBy="sucursal", fetch=FetchType.EAGER)
@@ -47,18 +47,13 @@ public class Sucursal {
 	public Sucursal() {
 	}
 	
-	
-	public Sucursal(Integer sCodigo, String sNombre, String ubicacion, String horarioa, String horarioc, Integer nmesas, String gerente) {
-		super();
-		this.sCodigo= sCodigo;
-		this.sNombre= sNombre;
-		this.ubicacion= ubicacion;
-		this.horarioa=horarioa;
-		this.horarioc= horarioc;
-		this.nmesas= nmesas;
-		this.gerente= gerente; 
+	public List<Empleado> getempleados() {
+		return empleados;
 	}
-	
+
+	public void setEmployeesList(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
 
 
 	public Integer getsCodigo() {

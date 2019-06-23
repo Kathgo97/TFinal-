@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import java.util.List;
 
+import com.uca.capas.domain.Sucursal;
 import com.uca.capas.domain.Usuario;
+import com.uca.capas.service.SucursalService;
 import com.uca.capas.service.UsuarioService;
 
 @Controller
@@ -15,6 +18,9 @@ public class MainController {
 
 	@Autowired
 	UsuarioService usuarioService;
+	
+	@Autowired
+	SucursalService sucursalService;
 
 	@GetMapping("/")
 	public ModelAndView initLogin() {
@@ -32,8 +38,18 @@ public class MainController {
 
 	@GetMapping("/home")
 	public ModelAndView initHome() {
+		
 		ModelAndView mav = new ModelAndView();
+		List<Sucursal> sucursales = null;
+		
+		try{
+			sucursales = sucursalService.getAllSucursales();
+		}catch(Exception e) {
+			
+		}
+		mav.addObject("sucursal", sucursales);
 		mav.setViewName("home");
+		System.out.print(sucursalService.getAllSucursales());
 		return mav;
 	}
 
@@ -51,6 +67,6 @@ public class MainController {
 				}
 			}
 		}
-		return new ModelAndView("redirect:/main");
+		return new ModelAndView("redirect:/login");
 	}
 }
