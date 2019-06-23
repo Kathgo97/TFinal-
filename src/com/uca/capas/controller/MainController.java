@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
@@ -47,12 +48,25 @@ public class MainController {
 		}catch(Exception e) {
 			
 		}
-		mav.addObject("sucursal", sucursales);
+		mav.addObject("sucursales", sucursales);
 		mav.setViewName("home");
 		System.out.print(sucursalService.getAllSucursales());
 		return mav;
 	}
 
+	@RequestMapping("/delete")
+	public ModelAndView delete(@RequestParam("id") Integer id) {
+		
+		try {
+			sucursalService.deleteSucursal(id);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return initHome();
+	}
+	
+	
 	@PostMapping(value = "/validate")
 	public ModelAndView validate(@RequestParam(value = "Username") String username,
 			@RequestParam(value = "Password") String password) {

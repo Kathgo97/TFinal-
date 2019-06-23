@@ -26,11 +26,12 @@
             <th class="text-center">Action</th>
         </tr>
     </thead>
-    <c:forEach items="${sucursales}" var="sucursal">
+    <c:forEach items="${sucursales}" var="sucursales">
             <tr>
-                <td>${sucursal.sNombre}</td>
-                <td>${sucursal.ubicacion}</td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                <td>${sucursales.sNombre}</td>
+                <td>${sucursales.ubicacion}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                	<button type="button" class="btn btn-danger btn-xs" onclick="window.location.href = '${pageContext.request.contextPath}/delete?id=${sucursales.sCodigo}'"> <span class="glyphicon glyphicon-remove" ></span> Del</button></td>
             </tr>
     </c:forEach>
     </table>

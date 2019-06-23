@@ -51,7 +51,7 @@ public class Sucursal {
 		return empleados;
 	}
 
-	public void setEmployeesList(List<Empleado> empleados) {
+	public void setEmpleados(List<Empleado> empleados) {
 		this.empleados = empleados;
 	}
 
