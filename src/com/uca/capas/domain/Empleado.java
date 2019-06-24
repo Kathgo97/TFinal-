@@ -36,29 +36,21 @@ public class Empleado {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="s_codigo")
 	private Sucursal sucursal;
-	
-	
-	public Empleado(Integer eCodigo, String eNombre, Integer edad, String genero, Boolean estado) {
+
+	public Empleado() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Empleado(Integer eCodigo, String eNombre, Integer edad, String genero, Boolean estado, Sucursal sucursal) {
 		super();
 		this.eCodigo = eCodigo;
 		this.eNombre = eNombre;
 		this.edad = edad;
 		this.genero = genero;
 		this.estado = estado;
+		this.sucursal = sucursal;
 	}
-	
-	public Empleado() {
-		super();
-	}
-	public Sucursal sucursal() {
-		return sucursal;
-	}
-	
-	public void setsucursal(Sucursal sucursal) {
-		this.sucursal= sucursal; 
-	}
-	
-	
+
 	public Integer geteCodigo() {
 		return eCodigo;
 	}
@@ -74,34 +66,42 @@ public class Empleado {
 	public void seteNombre(String eNombre) {
 		this.eNombre = eNombre;
 	}
-	public Integer getedad() {
+
+	public Integer getEdad() {
 		return edad;
 	}
 
-	public void setedad(Integer edad) {
+	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
-	
-	public Boolean getestado() {
-		return estado;
-	}
 
-	public void setestado(Boolean estado) {
-		this.estado = estado;
-	}
-
-	public String getgenero() {
+	public String getGenero() {
 		return genero;
 	}
 
-	public void setgenero(String genero) {
+	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
-	public String getestadoDelegate() {
-		if(this.estado == null) return "";
-		else {
-			return estado == true ?"Activo":"Inactivo";
-		}
+
+	public Boolean getEstado() {
+		return estado;
 	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public Sucursal getSucursal() {
+		return sucursal;
+	}
+
+	public void setSucursal(Sucursal sucursal) {
+		this.sucursal = sucursal;
+	}
+	public String getEstadoDelegate() {
+		return this.estado == null ? "" : this.estado == true ? "Activo" : "Inactivo";
+	}
+
 }
+
+	

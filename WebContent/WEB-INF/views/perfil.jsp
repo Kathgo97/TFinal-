@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Perfil de sucursal</title>
+<link href="resources/css/perfilstyle.css" rel = "stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 </head>
 <body>
 <div class="container">
@@ -17,7 +26,7 @@
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Perfil de Sucursal</h3>
+              <h3 class="panel-title">Perfil de la sucursal</h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -32,28 +41,28 @@
                       </tr>
                       <tr>
                         <td>Nombre de la sucursal:</td>
-                        <td> Amir Mostafa</td>
+                        <td> ${sucursales.sNombre}</td>
                       </tr>
                       <tr>
                         <td>Ubicacion de la sucursal:</td>
-                        <td>20</td>
+                        <td>${sucursales.ubicacion}</td>
                       </tr>
                    
                          <tr>
                              <tr>
                         <td>Horario de apertura:</td>
-                        <td> M</td>
+                        <td> ${sucursales.horarioa}</td>
                       </tr>
                         <tr>
                         <td>Horario de cierre:</td>
-                        <td>cairo</td>
+                        <td>${sucursales.horarioc}</td>
                       </tr>
                       <tr>
                         <td>Numero de mesas:</td>
-                        <td>555555</td>
+                        <td>${sucursales.nmesas}</td>
                       </tr>
                         <td>Gerente de sucursal:</td>
-                        <td> h </td>
+                        <td> ${sucursales.gerente} </td>
                            
                       </tr>
                      
@@ -62,36 +71,39 @@
                         <td> </td>
                            
                       </tr>
-
+                      
+					<c:forEach items="${empleados}" var="empleados">
                       </tr>
                         <td>Nombre del empleado:</td>
-                        <td> h </td>
+                        <td> ${empleados.eNombre} </td>
                            
                       </tr>
                      
                      
                       </tr>
                         <td>Edad</td>
-                         <td> h </td>
+                         <td> ${empleados.edad} </td>
                            
                       </tr>
                      
                        </tr>
                         <td>Genero</td>
-                         <td> h </td>
+                         <td> ${empleados.genero} </td>
                            
                       </tr>
                      
                      </tr>
                         <td>Estado</td>
-                         <td> h </td>
+                         <td> ${empleados.estadoDelegate} </td>
                            
                       </tr>
+                      
+                     </c:forEach>
                     </tbody>
                   </table>
                   
                   
-                  <a href="#" class="btn btn-primary" style="width:140px">Edit</a>
+                  <button type="button" onclick="window.location.href = '${pageContext.request.contextPath}/editar?id=${sucursales.sCodigo}'" class="btn btn-primary" style="width:140px">Editar</button>
                 </div>
               </div>
             </div>

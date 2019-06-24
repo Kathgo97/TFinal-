@@ -18,8 +18,8 @@
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
-    <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Añadir sucursal</a>
-        <tr>
+    <button class="btn btn-primary btn-xs pull-right" type="button" onclick="window.location.href = '${pageContext.request.contextPath}/agregar'"><b>+</b>Agregar nueva sucursal</button>
+       <tr>
      
             <th>Nombre </th>
             <th>Ubicacion de la sucursal</th>
@@ -30,8 +30,8 @@
             <tr>
                 <td>${sucursales.sNombre}</td>
                 <td>${sucursales.ubicacion}</td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                	<button type="button" class="btn btn-danger btn-xs" onclick="window.location.href = '${pageContext.request.contextPath}/delete?id=${sucursales.sCodigo}'"> <span class="glyphicon glyphicon-remove" ></span> Del</button></td>
+                <td class="text-center"><button type="button" class="btn btn-info btn-xs" onclick="window.location.href = '${pageContext.request.contextPath}/perfil?id=${sucursales.sCodigo}'"><span class="glyphicon glyphicon-edit"></span> Ver perfil</button> 
+               	<button type="button" class="btn btn-danger btn-xs" onclick="window.location.href = '${pageContext.request.contextPath}/delete?id=${sucursales.sCodigo}'"> <span class="glyphicon glyphicon-remove" ></span> Del</button></td>
             </tr>
     </c:forEach>
     </table>

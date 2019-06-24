@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 import java.util.List;
 
@@ -23,38 +28,57 @@ public class Sucursal {
 	@Column(name="s_codigo")
 	private Integer sCodigo;
 	
+	@NotNull
+	@NotEmpty(message = "Este campo no puede quedar vacio")
 	@Column(name="s_nombre")
 	private String sNombre;
 	
+	@NotNull
+	@NotEmpty(message = "Este campo no puede quedar vacio")
 	@Column(name="s_ubicacion")
 	private String ubicacion;
 	
+	@NotNull
+	@NotEmpty(message = "Este campo no puede quedar vacio")
 	@Column(name="s_horarioa")
 	private String horarioa;
 	
+	@NotNull
+	@NotEmpty(message = "Este campo no puede quedar vacio")
 	@Column(name="s_horarioc")
 	private String horarioc;
 	
+	@NotNull
 	@Column(name="s_nmesas")
+	@Min(value = 0)
+	@PositiveOrZero
 	private Integer nmesas;
 	
+	
+	@NotNull
+	@NotEmpty(message = "Este campo no puede quedar vacio")
 	@Column(name="s_nomgerente")
 	private String gerente;
 	
 	@OneToMany(mappedBy="sucursal", fetch=FetchType.EAGER)
 	private List<Empleado> empleados;
-	
+
 	public Sucursal() {
-	}
-	
-	public List<Empleado> getempleados() {
-		return empleados;
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setEmpleados(List<Empleado> empleados) {
+	public Sucursal(Integer sCodigo, String sNombre, String ubicacion, String horarioa, String horarioc, Integer nmesas,
+			String gerente, List<Empleado> empleados) {
+		super();
+		this.sCodigo = sCodigo;
+		this.sNombre = sNombre;
+		this.ubicacion = ubicacion;
+		this.horarioa = horarioa;
+		this.horarioc = horarioc;
+		this.nmesas = nmesas;
+		this.gerente = gerente;
 		this.empleados = empleados;
 	}
-
 
 	public Integer getsCodigo() {
 		return sCodigo;
@@ -71,45 +95,55 @@ public class Sucursal {
 	public void setsNombre(String sNombre) {
 		this.sNombre = sNombre;
 	}
-	
-	public String getubicacion() {
+
+	public String getUbicacion() {
 		return ubicacion;
 	}
 
-	public void setubicacion(String ubicacion) {
+	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	
 
-	public String gethorarioa() {
+	public String getHorarioa() {
 		return horarioa;
 	}
 
-	public void sethorarioa(String horarioa) {
+	public void setHorarioa(String horarioa) {
 		this.horarioa = horarioa;
 	}
-	
-	public String gethorarioc() {
+
+	public String getHorarioc() {
 		return horarioc;
 	}
 
-	public void sethorarioc(String horarioc) {
+	public void setHorarioc(String horarioc) {
 		this.horarioc = horarioc;
 	}
-	
-	public Integer getsnmesas() {
+
+	public Integer getNmesas() {
 		return nmesas;
 	}
 
-	public void setnmesas(Integer nmesas) {
+	public void setNmesas(Integer nmesas) {
 		this.nmesas = nmesas;
 	}
 
-	public String getgerente() {
+	public String getGerente() {
 		return gerente;
 	}
 
-	public void setgerente(String gerente) {
-		this.gerente= gerente;
+	public void setGerente(String gerente) {
+		this.gerente = gerente;
 	}
+
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+	
+
+	
 }

@@ -38,8 +38,7 @@ public class SucursalServiceImpl implements SucursalService {
 		// TODO Auto-generated method stub
 		return sucursalrepository.save(sucursal);
 	}
-	
-	
-	
-	
 }
+	
+	
+	
