@@ -93,6 +93,7 @@ public class MainController {
 		if (result.hasErrors()) {
 			mav.setViewName("agregar");
 		} else {
+			System.out.print(sucursal.getsNombre());
 			sucursalService.saveSucursal(sucursal);
 			mav.setViewName("redirect:/home");
 			return mav;
@@ -116,7 +117,18 @@ public class MainController {
 		return mav;
 	}
 
-
+	@RequestMapping("/guardarE")
+	public ModelAndView saveE(@Valid @ModelAttribute Sucursal sucursal, BindingResult result) {
+		ModelAndView mav = new ModelAndView();
+		if (result.hasErrors()) {
+			mav.setViewName("edit");
+		} else {
+			sucursalService.saveSucursal(sucursal);
+			mav.setViewName("redirect:/home");
+			return mav;
+		}
+		return mav;
+	}
 	@RequestMapping("/delete")
 	public ModelAndView delete(@RequestParam("id") Integer id) {
 		
