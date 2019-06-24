@@ -53,11 +53,13 @@
 						<form:input type='text' path='gerente' value='${sucursal.gerente}'/><br>
 					<form:errors path='gerente' cssStyle="color:#E81505"/><br>
 					
+					<button type="button" onclick="window.location.href = '${pageContext.request.contextPath}/guardar'" class="btn btn-primary" style="width:140px">Guardar sucursal</button>
+               
+					
 				</form:form>
                   
                   
-                  <button type="button" onclick="window.location.href = '${pageContext.request.contextPath}/guardar'" class="btn btn-primary" style="width:140px">Guardar sucursal</button>
-                </div>
+                   </div>
               </div>
             </div>
                 
